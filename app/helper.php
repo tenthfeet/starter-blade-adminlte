@@ -1,21 +1,20 @@
 <?php
 
-if (!function_exists('generate_options')) {
+if (! function_exists('generate_options')) {
     /**
      * Generate HTML <option> tags from iterable data.
      *
-     * @param iterable $data        Key-value pairs where key is the option value and value is the display text.
-     * @param array    $selected    Array of selected values (strings or integers).
-     * @param string   $placeholder Optional placeholder text.
-     * @param bool     $readonly    Whether to disable the select (affects only the placeholder).
-     *
+     * @param  iterable  $data  Key-value pairs where key is the option value and value is the display text.
+     * @param  array  $selected  Array of selected values (strings or integers).
+     * @param  string  $placeholder  Optional placeholder text.
+     * @param  bool  $readonly  Whether to disable the select (affects only the placeholder).
      * @return string HTML option elements
      */
     function generate_options(iterable $data, array $selected = [], string $placeholder = '', bool $readonly = false): string
     {
         $options = '';
 
-        if (!empty($placeholder)) {
+        if (! empty($placeholder)) {
             $safePlaceholder = htmlspecialchars($placeholder, ENT_QUOTES, 'UTF-8');
             $disabledAttribute = $readonly ? ' disabled' : '';
             $options .= "<option value=\"\"$disabledAttribute>$safePlaceholder</option>";

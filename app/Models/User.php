@@ -25,7 +25,7 @@ class User extends Authenticatable
         'isd',
         'mobile_no',
         'password',
-        'status'
+        'status',
     ];
 
     /**
@@ -47,7 +47,7 @@ class User extends Authenticatable
     {
         return [
             'password' => 'hashed',
-            'status' => Status::class
+            'status' => Status::class,
         ];
     }
 }
