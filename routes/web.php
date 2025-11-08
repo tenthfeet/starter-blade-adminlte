@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\UserManagement\UserController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
+use App\Http\Controllers\UserManagement\ProfileController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 Route::middleware('guest')->group(function () {
@@ -20,5 +22,10 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::view('/home', 'pages.home')->name('home');
     Route::apiResource('/users', UserController::class);
+
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::put('password', [PasswordController::class, 'update'])->name('password.update');
+
     Route::delete('/logout', [AuthenticatedSessionController::class, 'destroy']);
 });

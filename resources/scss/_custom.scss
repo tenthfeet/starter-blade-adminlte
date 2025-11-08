@@ -11,3 +11,8 @@
 .sidebar-menu.nav-child-indent ul.nav.nav-treeview {
     padding-left: 0.5rem;
 }
+
+label.required::after {
+    content: " *";
+    color: red;
+}
