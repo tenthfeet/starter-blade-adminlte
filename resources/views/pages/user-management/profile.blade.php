@@ -46,15 +46,15 @@
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label class="form-label required">Current Password</label>
-                        <input type="password" class="form-control" value="" name="current_password">
+                        <input type="password" class="form-control" value="" name="current_password" autocomplete>
                     </div>
                     <div class="form-group col-md-4">
                         <label class="form-label required">New Password</label>
-                        <input type="password" class="form-control" value="" name="password">
+                        <input type="password" class="form-control" value="" name="password" autocomplete>
                     </div>
                     <div class="form-group col-md-4">
                         <label class="form-label required">Confirm the new Password</label>
-                        <input type="password" class="form-control" value="" name="password_confirmation">
+                        <input type="password" class="form-control" value="" name="password_confirmation" autocomplete>
                     </div>
                 </div>
                 <div class="d-flex">

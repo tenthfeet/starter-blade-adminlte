@@ -1,0 +1,48 @@
+# this configuration intended for sub-domain deployment
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # === Block sensitive files ===
+    <FilesMatch "^(\.env|artisan|composer\.(json|lock)|phpunit\.xml)$">
+        Require all denied
+    </FilesMatch>
+
+    # === Force HTTPS ===
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # === Remove www. (Redirect www to non-www) ===
+    RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+    RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+    # === Preserve Authorization Header for Passport ===
+    RewriteCond %{HTTP:Authorization} ^(.*)
+    RewriteRule ^ - [E=HTTP_AUTHORIZATION:%1]
+
+    # === Forward all requests to Laravel's /public folder ===
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+# this configuration intended for sub-folder deployment
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # ------------------------------------------------------
+    # Prevent direct access to sensitive directories
+    # ------------------------------------------------------
+    RewriteRule ^(app|bootstrap|config|database|resources|routes|storage|vendor|tests)/ - [F,L]
+
+    # Prevent access to environment and config files
+    <FilesMatch "^(\.env|artisan|composer\.(json|lock)|package\.json|webpack\.mix\.js)$">
+        Order allow,deny
+        Deny from all
+    </FilesMatch>
+
+    # ------------------------------------------------------
+    # Forward all requests to Laravel's public directory
+    # ------------------------------------------------------
+    RewriteCond %{REQUEST_URI} !^/sub-folder/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+
+</IfModule>

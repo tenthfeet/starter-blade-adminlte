@@ -18,9 +18,9 @@
                 <div class="form-group">
                     <label class="form-label">Password</label>
                     <div class="input-group">
-                        <input type="password" name="password" class="form-control" placeholder="Please enter your password"
-                            autocomplete />
-                        <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
+                        <input type="password" name="password" class="form-control" placeholder="Password"
+                               placeholder="Please enter your password" autocomplete />
+                        <div class="password-visibility input-group-text"><span class="bi bi-eye-slash"></span></div>
                     </div>
                 </div>
                 <div class="text-end">

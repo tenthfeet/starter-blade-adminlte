@@ -4,6 +4,8 @@ import { handleValidationError, validator } from "../../utils/validation";
 
 const FORM_SELECTOR = '#login-form';
 const loginForm = $(FORM_SELECTOR);
+const password = loginForm.find('[name="password"]');
+const passwordVisibility = loginForm.find('.password-visibility');
 
 const loginValidator = validator(FORM_SELECTOR, {
     rules: {
@@ -20,6 +22,8 @@ const loginValidator = validator(FORM_SELECTOR, {
     submitHandler: login
 });
 
+passwordVisibility.on('click', togglePasswordVisibility);
+
 function login(form, event) {
     event.preventDefault();
     const btn = loginForm.find('button[type="submit"]');
@@ -34,4 +38,13 @@ function login(form, event) {
             toggleButtonState(btn, false, 'Sign In');
             handleValidationError(error, loginValidator);
         });
+}
+
+function togglePasswordVisibility() {
+    const elementType = password.attr('type');
+    const visible = (elementType === 'text');
+    const icon = visible ? '<span class="bi bi-eye-slash"></span>' : '<span class="bi bi-eye"></span>';
+
+    $(this).html(icon);
+    password.attr('type', (visible ? 'password' : 'text'));
 }
