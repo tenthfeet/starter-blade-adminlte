@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\UserManagement;
 
-use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
@@ -10,6 +9,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
+use Tenthfeet\Enums\Status;
 
 class UserController extends Controller
 {

@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Enums\Status;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Tenthfeet\Enums\Status;
 
 class UserSeeder extends Seeder
 {

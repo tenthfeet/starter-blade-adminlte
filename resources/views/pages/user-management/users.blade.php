@@ -61,7 +61,7 @@
                                 <div class="col-md-6 form-group mb-3">
                                     <label class="form-label">Status <span class="text-danger">*</span></label>
                                     <select class="form-select reset" name="status" id="status" required>
-                                        {!! generate_options($statuses, [], '--Select Status--') !!}
+                                        @options($statuses, [], '--Select Status--')
                                     </select>
                                 </div>
                             </div>

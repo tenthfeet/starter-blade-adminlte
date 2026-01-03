@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Enums\Status;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Tenthfeet\Enums\Status;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
