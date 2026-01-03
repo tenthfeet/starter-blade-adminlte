@@ -18,6 +18,7 @@ const usersTable = new DataTable('#users', {
         { data: 'id', render: renderSerialNo },
         { data: 'name' },
         { data: 'email' },
+        { data: 'status_label' },
         { data: 'id', render: renderEditBtn },
         { data: 'id', render: renderDeleteBtn }
     ]
