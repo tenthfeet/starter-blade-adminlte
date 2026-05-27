@@ -153,4 +153,11 @@ This project has domain-specific skills available in `**/skills/**`. You MUST ac
 - Run tests: `php artisan test --compact` or filter: `php artisan test --compact --filter=testName`.
 - Do NOT delete tests without approval.
 
+=== javascript/core rules ===
+
+# JavaScript Conventions
+- You MUST activate the `js-conventions` skill located in `.agents/skills/js-conventions/SKILL.md` whenever you work with or refactor frontend JavaScript files in this project.
+- Strictly adhere to the 6-section structure (Imports, Constants, DOM Refs, Initialization, Event Bindings, Functions) in all JS files.
+- Avoid inline anonymous event handlers in favor of named handler functions.
+
 </laravel-boost-guidelines>
